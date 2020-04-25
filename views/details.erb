@@ -4,6 +4,12 @@
 		<%= @row['content'] %>
 		<br />
 		Added at: <%= @row['created_date'] %>
-		
-		
+</p>
+<br />
+<h4>Comments:</h4>
+<p>
+  <form action="/deteils/<%= @row['id'] %>" method="POST">
+ 		<textarea  style="width: 400px"class="form-control" rows="6" name="content" placeholder="Type comment here"></textarea> <br />
+		<button type="submit" class="btn btn-info">Add comment</button>
+  </form>
 </p>
