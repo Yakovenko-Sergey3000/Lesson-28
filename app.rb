@@ -28,7 +28,7 @@ configure do
 end
 
 get '/' do
-   erb "Helloy new projet"
+   erb :index
 end
 
 get '/new' do 
@@ -42,7 +42,7 @@ post '/new' do
          @error = "Type post text "
          return erb :new 
       end  
-
+        #Сохранение данных в ДБ Текс , время и дата 
       @db.execute 'insert into Posts (content, created_date) values (?, datetime());', [@content]
     erb "You typed #{@content}"
 end  
