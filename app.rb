@@ -48,7 +48,6 @@ post '/new' do
       @db.execute 'insert into Posts (content, created_date) values (?, datetime());', [@content]
 
       #перенаправление на главную страницу 
-      redirect to '/'
-    
+      redirect to '/'   
 end  
 
