@@ -6,3 +6,7 @@ get '/' do
    erb "Helloy new projet"
 end
 
+get '/new' do 
+  erb 'Hello'
+end 
+
