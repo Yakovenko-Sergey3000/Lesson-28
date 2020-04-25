@@ -52,10 +52,26 @@ post '/new' do
 end  
 
 get '/details/:post_id' do 
+  #Получаем переменную из URL
     post_id = params[:post_id]
-
+    #Получаем список постов
+    #(У нас будет только один пост)
      results = @db.execute 'select * from Posts where id = ?', [post_id]
+     # Выбираем этот один пост в переменную @row
      @row = results[0] 
-
+     # позвращаем представление 
     erb :details
 end  
+ 
+
+ # обработчик пост запроса /deteils/...
+ #(браузре отправляет данные на сервер)
+
+post '/deteils/:post_id' do 
+    post_id = params[:post_id]
+    @content = params[:content]
+
+    erb "You typed comment #{@content} for post #{post_id}"
+    
+
+end   
